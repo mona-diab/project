@@ -4,6 +4,7 @@ import requests
 import smtplib
 from email.mime.text import MIMEText
 from urllib.parse import urlparse, unquote
+from dotenv import load_dotenv
 
 # طلب البيانات من المستخدم
 file_url = input("Enter the file URL: ")
@@ -18,9 +19,11 @@ BACKUP_PATH = os.path.join(USER_HOME, "Downloads", "backup")
 os.makedirs(DOWNLOAD_PATH, exist_ok=True)
 os.makedirs(BACKUP_PATH, exist_ok=True)
 
-# ثابتات البريد الإلكتروني (يجب استخدام كلمة مرور التطبيق عند التعامل مع Gmail)
-EMAIL_SENDER = 'monadiab283@gmail.com'
-EMAIL_PASSWORD = "lnlq bcbk kxrp vdfv"
+load_dotenv()
+EMAIL_SENDER = os.getenv("EMAIL_SENDER")
+EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
+
+
 
 # استخراج اسم الملف بطريقة آمنة
 parsed_url = urlparse(file_url)
