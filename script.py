@@ -6,8 +6,8 @@ from urllib.parse import urlparse, unquote
 file_url = input("Enter the file URL: ")
 
 USER_HOME = os.path.expanduser("~")
-DOWNLOAD_PATH = os.path.join(USER_HOME, "Downloads", "files")
-BACKUP_PATH = os.path.join(USER_HOME, "Downloads", "backup")
+DOWNLOAD_PATH = os.path.join(USER_HOME,"files")
+BACKUP_PATH = os.path.join(USER_HOME,"backup")
 
 os.makedirs(DOWNLOAD_PATH, exist_ok=True)
 os.makedirs(BACKUP_PATH, exist_ok=True)
